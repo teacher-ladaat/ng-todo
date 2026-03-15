@@ -19,7 +19,7 @@ export class TodoService {
       id: crypto.randomUUID(),
       title: 'Walk the dog',
       description: 'Take Fido for a walk in the park',
-      isCompleted: true,
+      isCompleted: false,
       isArchived: false,
       endDate: new Date('2026-06-15'),
     },
@@ -48,5 +48,11 @@ export class TodoService {
   selectedTodo$: Observable<Todo | undefined> = this._selectedTodoSubject.asObservable();
   set selectedTodo(todo: Todo) {
     this._selectedTodoSubject.next(todo);
+  }
+  completeTodo() {
+    this._selectedTodoSubject.value.isCompleted = true;
+  }
+  archiveTodo() {
+    this._selectedTodoSubject.value.isArchived = true;
   }
 }

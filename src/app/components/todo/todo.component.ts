@@ -10,5 +10,13 @@ import { MaterialModule } from '../../material/material-module';
   styleUrl: './todo.component.scss',
 })
 export class TodoComponent {
-    todo$ = inject(TodoService).selectedTodo$;
+  todoService = inject(TodoService);
+  todo$ = this.todoService.selectedTodo$;
+
+  onArchive() {
+    this.todoService.archiveTodo();
+  }
+  onComplete() {
+    this.todoService.completeTodo();
+  }
 }

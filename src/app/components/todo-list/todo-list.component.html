@@ -5,6 +5,7 @@
       href="#{{ todo.id }}"
       (click)="onTodoSelect($event, todo)"
       [activated]="activeTodo === todo"
+      [class.completed]="todo.isCompleted"
       >{{ todo.title| titlecase }}</a
     >
   }
