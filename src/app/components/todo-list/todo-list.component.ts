@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MaterialModule } from '../../material/material-module';
 import { CommonModule } from '@angular/common';
 import { TodoService } from '../../services/todo.service';
+import { Todo } from '../../models/todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,5 +12,11 @@ import { TodoService } from '../../services/todo.service';
 })
 export class TodoListComponent {
   todoService = inject(TodoService);
-  activeTodo?: number | string;
+  activeTodo?: Todo;
+
+  onTodoSelect($event: PointerEvent, todo: Todo) {
+    $event.preventDefault();
+    this.activeTodo = todo;
+    this.todoService.selectedTodo = todo;
+  }
 }
