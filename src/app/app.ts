@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Header } from './components/header/header';
+import { HeaderComponent } from './components/header/header.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, TodoListComponent],
+  imports: [HeaderComponent, TodoListComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
