@@ -42,6 +42,11 @@ export class TodoService {
   ];
 
   private _todosSubject = new BehaviorSubject<Todo[]>(this._mockTodos);
-
   todos$: Observable<Todo[]> = this._todosSubject.asObservable();
+
+  private _selectedTodoSubject = new BehaviorSubject<Todo>(this._mockTodos[0]);
+  selectedTodo$: Observable<Todo | undefined> = this._selectedTodoSubject.asObservable();
+  set selectedTodo(todo: Todo) {
+    this._selectedTodoSubject.next(todo);
+  }
 }
