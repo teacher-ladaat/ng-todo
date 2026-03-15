@@ -1,1 +1,11 @@
-<p>todo-list works!</p>
+<mat-nav-list>
+  @for (todo of todoService.todos$ | async; track todo) {
+    <a
+      mat-list-item
+      href="#{{ todo.id }}"
+      (click)="$event.preventDefault(); activeTodo = todo.id"
+      [activated]="activeTodo === todo.id"
+      >{{ todo.title| titlecase }}</a
+    >
+  }
+</mat-nav-list>
