@@ -4,5 +4,5 @@ export interface Todo {
     description: string;
     isCompleted: boolean;
     isArchived: boolean;
-    endDate: Date;
+    endDate: Date | number;
 }
